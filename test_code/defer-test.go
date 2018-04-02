@@ -5,11 +5,11 @@ import (
 )
 
 func test(){
-  defer log.Print("log3")
+  defer log.Print("log 3")
 }
 
 func test2(){
-  defer log.Print("log4")
+  defer log.Print("log 4")
 }
 
 func main() {
