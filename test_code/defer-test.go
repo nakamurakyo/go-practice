@@ -12,6 +12,10 @@ func test2(){
   defer log.Print("log 4")
 }
 
+////////////////////////////////////////////////////
+// defer のサンプル
+//
+
 func main() {
   defer log.Print("log 1")
   defer log.Print("log 2")
