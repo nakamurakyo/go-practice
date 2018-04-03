@@ -5,6 +5,9 @@ import (
   "os/exec"
 )
 
+////////////////////////////////////////////////////
+// 引数を取るコマンドのサンプル
+//
 func main() {
   log.Print("これはコマンドを実行するプログラムです!\n")
   out, error := exec.Command("ls", "-la").Output()
