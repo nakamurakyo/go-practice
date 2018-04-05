@@ -1,15 +1,15 @@
 package main
 
 import (
-  "log"
+	"log"
 )
 
-func test(){
-  defer log.Print("log 3")
+func test() {
+	defer log.Print("log 3")
 }
 
-func test2(){
-  defer log.Print("log 4")
+func test2() {
+	defer log.Print("log 4")
 }
 
 ////////////////////////////////////////////////////
@@ -17,11 +17,11 @@ func test2(){
 //
 
 func main() {
-  defer log.Print("log 1")
-  defer log.Print("log 2")
+	defer log.Print("log 1")
+	defer log.Print("log 2")
 
-  test()
-  test2()
+	test()
+	test2()
 
-  log.Print("end test")
+	log.Print("end test")
 }
