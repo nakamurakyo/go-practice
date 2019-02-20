@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  app:
+    image: golang:1.10.3
+    volumes:
+      - .:/go/src/github.com/nakamurakyo/myTest
+    working_dir: /go/src/github.com/nakamurakyo/myTest
+    command: make run
