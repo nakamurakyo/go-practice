@@ -4,7 +4,6 @@ GOCLEAN=$(GOCMD) clean
 GOFMT=$(GOCMD) fmt
 GOGET=$(GOCMD) get
 BINARY_NAME=mybinary
-BINARY_UNIX=$(BINARY_NAME)_unix
 
 # phoneyが無いと同名のファイルがある時に実行しない
 .PHONY: build run clean deps
@@ -20,8 +19,11 @@ run:
 clean:
 	$(GOCLEAN)
 	rm -f $(BINARY_NAME)
-	rm -f $(BINARY_UNIX)
 
-deps:
+dep:
 	go get -u github.com/golang/dep/cmd/dep
 	dep ensure
+
+##### dep init
+# dep-init:
+# 	dep init

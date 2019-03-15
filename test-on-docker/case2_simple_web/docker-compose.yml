@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  app:
+    image: golang:1.12rc1
+    volumes:
+      - .:/go/src/github.com/nakamurakyo/myTest
+    ports:
+      - 9000:8080
+    working_dir: /go/src/github.com/nakamurakyo/myTest
+    command: make run

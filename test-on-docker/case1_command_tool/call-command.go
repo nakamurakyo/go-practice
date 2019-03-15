@@ -15,9 +15,8 @@ func exec_command(command string, option string) string {
 
 	return string(out)
 }
-
 ////////////////////////////////////////////////////
-// go run call-command3.go
+// docker-compose up
 //
 func main() {
 	log.Print("これはコマンドを実行するプログラムです!\n")
