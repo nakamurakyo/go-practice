@@ -4,8 +4,6 @@ WORKDIR /go/app
 
 COPY . .
 
-ENV GO111MODULE=on
-
 RUN apk add --no-cache git \
   && go build -o app \
   && go get github.com/oxequa/realize
@@ -20,4 +18,4 @@ RUN addgroup go \
   && adduser -D -G go go \
   && chown -R go:go /app/app
 
-CMD ["realize start --run --no-config"]
+CMD ["./app"]

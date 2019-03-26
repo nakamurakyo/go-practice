@@ -7,5 +7,6 @@ services:
       target: build
     volumes:
       - ./:/go/app
+    command: realize start --run --no-config
     ports:
       - 1323:1323
