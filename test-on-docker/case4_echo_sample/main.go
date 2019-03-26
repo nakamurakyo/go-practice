@@ -3,7 +3,7 @@ package main
 import (
     "github.com/labstack/echo"
     "github.com/labstack/echo/middleware"
-    "./handler"
+    "app/handler"
 )
 
 func main() {
