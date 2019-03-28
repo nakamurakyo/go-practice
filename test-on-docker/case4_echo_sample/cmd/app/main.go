@@ -3,7 +3,7 @@ package main
 import (
     "github.com/labstack/echo"
     "github.com/labstack/echo/middleware"
-    "./handler"
+    "github.com/aaa/bbb/handler"
 )
 
 func main() {
@@ -15,7 +15,7 @@ func main() {
     e.Use(middleware.Recover())
 
     // ルーティング
-    e.GET("/hello", handler.MainPage())
+    e.GET("/hello", MainPage())
 
     // サーバー起動
     e.Start(":1323")    //ポート番号指定してね
