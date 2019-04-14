@@ -1,26 +1,23 @@
-FROM golang:1.12-alpine as build
+FROM golang:1.12-alpine3.9 AS build
 
-ENV GOPATH /go
+WORKDIR /go/src/git.dmm.com/nakamurakyo/go-practice
 
-ENV WORKDIR ${GOPATH}/src/github.com/aaa/bbb
+RUN apk add --no-cache ca-certificates git make \
+	&& go get -u github.com/oxequa/realize
 
-RUN mkdir -p /go/src/github.com/aaa/bbb
+COPY . .
 
-ADD . ${WORKDIR}
-WORKDIR ${WORKDIR}
+RUN make mod \
+	&& make build-default
 
-RUN apk add --no-cache git \
-  && go build ${WORKDIR}/cmd/app \
-  && go get github.com/oxequa/realize
+CMD ["sh", "-c", "make mod && cd cmd/prctice-backend-server && realize start"]
 
-FROM alpine
+FROM alpine:3.8 AS app
 
-WORKDIR /app
+COPY --from=build /go/src/git.dmm.com/nakamurakyo/go-practice/build/practice-backend /usr/local/bin/practice-backend
 
-COPY --from=build /go/app/app .
+RUN apk add --no-cache ca-certificates
 
-RUN addgroup go \
-  && adduser -D -G go go \
-  && chown -R go:go /app/app
+EXPOSE 8080
 
-CMD ["./app"]
+CMD ["practice-backend"]
